@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
 </head>
 <body>
-    <h1>Welcome, {{ first_name }} {{ last_name }}!</h1>
-    <p>This is your profile page.</p>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Benefits</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </nav>
+  <h1>Welcome, {{ employee.first_name }} {{ employee.last_name }}!</h1>
+  <p>This is your profile page.</p>
+
+  <h2>Personal Details</h2>
+  <ul>
+    <li>Date of Birth: {{ employee.date_of_birth }}</li>
+    <li>Email Address: {{ employee.email_address }}</li>
+    <li>Department: {{ employee.department }}</li>
+    <li>Position: {{ employee.position }}</li>
+    <li>Hire Date: {{ employee.hire_date }}</li>
+    <li>Salary: {{ employee.salary }}</li>
+    <li>Employee Status: {{ employee.get_employee_status_display }}</li>
+    <li>Employee Type: {{ employee.get_employee_type_display }}</li>
+  </ul>
+
+  <button id="edit-info-btn">Edit Information</button>
+
+  <div id="edit-info-form" style="display: none;">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Update Information</button>
+    </form>
+  </div>
+
+  <script>
+    const editInfoBtn = document.getElementById('edit-info-btn');
+    const editInfoForm = document.getElementById('edit-info-form');
+
+    editInfoBtn.addEventListener('click', () => {
+      editInfoForm.style.display = editInfoForm.style.display === 'none' ? 'block' : 'none';
+    });
+  </script>
 </body>
 </html>
