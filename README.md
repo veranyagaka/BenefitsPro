@@ -1,4 +1,12 @@
-For your Benefits Administration System project, here's a list of HTML files you might need:
+okay okay i need to organize my thoughts
+- [x] Login & Database
+- [ ] Benefits Application
+- [ ] Redirection to various pages
+- [ ] BetterError Handling
+- [ ] CSS
+- [ ] Deployment Finally
+
+<!--For your Benefits Administration System project, here's a list of HTML files you might need:
 
 index.html: Landing page or dashboard for the system.
 login.html: Login page for users.
@@ -59,3 +67,4 @@ from django.contrib import admin
 from .models import YourModelName
 
 admin.site.register(YourModelName)
+-->
