@@ -1,6 +1,7 @@
 okay okay i need to organize my thoughts
 - [x] Login & Database
 - [ ] Benefits Application
+- [ ] Approve or Deny requests by admin
 - [ ] Redirection to various pages
 - [ ] BetterError Handling
 - [ ] CSS
