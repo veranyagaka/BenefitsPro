@@ -1,13 +1,31 @@
+{% load static%}
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Welcome</title>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefits Pro - Your Employee Benefits Hub</title>
+    <link rel ="stylesheet" href="{% static 'index.css' %}"></head>
 <body>
-
-<h1>Hello World!</h1>
-<p>Welcome to my first Django project!</p>
-<button onclick="window.location.href='/login'">Login Here!</button>
-
+    <header>
+        <h1>Benefits Pro</h1>
+        <p>Your one-stop shop for managing employee benefits.</p>
+    </header>
+    <main>
+        <div class="welcome-message">
+            <h2>Welcome to a Brighter Benefits Future</h2>
+            <p>Benefits Pro empowers HR professionals to streamline employee benefit administration, simplify enrollment, and ensure a positive experience for your workforce.</p>
+            <button onclick="window.location.href='/login'">Login Here!</button>
+        </div>
+        <div class="benefits-highlight">
+            <h3>Benefits Made Easy</h3>
+            <ul>
+                <li>Effortless Management: Manage health insurance, retirement plans, and more in one central location.</li>
+                <li>Simplified Enrollment: Streamline enrollment processes for employees.</li>
+                <li>Enhanced Communication: Keep employees informed and engaged with clear benefit information.</li>
+                <li>Data-Driven Insights: Gain valuable insights to improve your benefits program.</li>
+            </ul>
+        </div>
+    </main>
 </body>
 </html>
