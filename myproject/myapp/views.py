@@ -58,7 +58,7 @@ def profile_view(request):
 #to handle form submission
 from .forms import RegisterForm
 
-def employee_view(request):
+def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
