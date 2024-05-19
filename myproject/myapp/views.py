@@ -54,7 +54,20 @@ def profile_view(request):
         # Handle the case where employee_id is not in the session
         print("Employee ID not found in session")
         return redirect('enrollment')  # Redirect to the enrollment page or login page
-    
+
+#to handle form submission
+from .forms import RegisterForm
+
+def employee_view(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            # Process the data in form.cleaned_data
+            return render(request, 'success.html')
+    else:
+        form = RegisterForm()
+    return render(request, 'register.html', {'form': form})
+
 def index(request):
     template = loader.get_template('index.html')
     return HttpResponse(template.render())

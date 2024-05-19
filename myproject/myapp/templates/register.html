@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benefits Pro - Register</title>
+  {% load static %}  <link rel="stylesheet" href="{% static 'register.css' %}">  </head>
+<body>
+  <header>
+    <h1>Benefits Pro</h1>
+  </header>
+  <main>
+    <div class="container">
+        <h2>Unlock Your Benefits</h2>
+        <h4>Get the most out of your employment with our comprehensive benefits program. </h4>
+            <h4>Register now!</h4>
+              <form method="post">
+        {% csrf_token %}  {{ form.as_p }}  <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
