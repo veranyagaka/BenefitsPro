@@ -1,45 +1,54 @@
+{% load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Benefits Enrollment</title>
+    <link rel="stylesheet" href="{% static 'enrollment.css' %}">
 </head>
 <body>
-    <h1>Employee Benefits Enrollment</h1>
-    <p>Welcome! This page allows you to enroll in your company's benefits program.</p>
+    <div class="container">
+        <header>
+            <h1>Apply for Your Benefits</h1>
+            <p>Secure your financial future and explore health, wellness, and retirement plans that empower you to live life to the fullest.</p>
+        </header>
+        <form action="{% url 'process_enrollment' %}" method="post">
+            {% csrf_token %}
+            <section>
+                <h2>Personal Information</h2>
+                <label for="employee_id">Employee ID:</label>
+                <input type="text" id="employee_id" name="employee_id" required><br>
 
-    <form action="{% url 'process_enrollment' %}" method="post">
-        {% csrf_token %}
-        <h2>Personal Information</h2>
-        <label for="employee_id">Employee ID:</label>
-        <input type="text" id="employee_id" name="employee_id" required><br>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required><br>
 
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required><br>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required><br>
+            </section>
+            <section>
+                <h2>Benefit Selection</h2>
+                <p>Please select the benefits you wish to enroll in:</p>
 
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required><br>
+                <label for="health_insurance">Health Insurance:</label>
+                <input type="checkbox" id="health_insurance" name="benefits[]" value="health_insurance"><br>
 
-        <h2>Benefit Selection</h2>
-        <p>Please select the benefits you wish to enroll in:</p>
+                <label for="dental_insurance">Dental Insurance:</label>
+                <input type="checkbox" id="dental_insurance" name="benefits[]" value="dental_insurance"><br>
 
-        <label for="health_insurance">Health Insurance:</label>
-        <input type="checkbox" id="health_insurance" name="benefits[]" value="health_insurance"><br>
+                <label for="vision_insurance">Vision Insurance:</label>
+                <input type="checkbox" id="vision_insurance" name="benefits[]" value="vision_insurance"><br>
 
-        <label for="dental_insurance">Dental Insurance:</label>
-        <input type="checkbox" id="dental_insurance" name="benefits[]" value="dental_insurance"><br>
+                <label for="life_insurance">Life Insurance:</label>
+                <input type="checkbox" id="life_insurance" name="benefits[]" value="life_insurance"><br>
 
-        <label for="vision_insurance">Vision Insurance:</label>
-        <input type="checkbox" id="vision_insurance" name="benefits[]" value="vision_insurance"><br>
+                <label for="retirement_savings">Retirement Savings Plan:</label>
+                <input type="checkbox" id="retirement_savings" name="benefits[]" value="retirement_savings"><br><br>
 
-        <label for="life_insurance">Life Insurance:</label>
-        <input type="checkbox" id="life_insurance" name="benefits[]" value="life_insurance"><br>
-
-        <label for="retirement_savings">Retirement Savings Plan:</label>
-        <input type="checkbox" id="retirement_savings" name="benefits[]" value="retirement_savings"><br><br>
-
-        <input type="submit" value="Submit Enrollment">
-    </form>
+                <input type="submit" value="Submit Enrollment">
+            </section>
+        </form>
+    </div>
 </body>
 </html>
