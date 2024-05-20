@@ -6,25 +6,6 @@ body {
     padding: 0;
   }
   
-  nav ul {
-    list-style: none;
-    padding: 0;
-    background-color: #333;
-    margin: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 10px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: inline-block;
-  }
-  
   h1, h2 {
     color: #2e7d32;
   }
@@ -159,5 +140,86 @@ body {
   .profile-instructions p b {
     font-weight: bold; /* Highlight important note in bold */
   }
+  /* the menu part*/
+  nav {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    display: flex; /* Arrange menu button and list horizontally */
+    flex-direction: column;
+    float: left; /* Make the navigation bar float right */
+    width: 150px; 
+  }
+  
+  nav ul {
+    list-style: none; /* Remove default bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: block;
+  }
+  
+  nav li {
+    margin-bottom: 10px;
+    margin: 5px; /* Add spacing between menu items */
+    padding: 5px 10px; 
+  }
+  
+  nav a {
+    color: inherit; /* Inherit text color from nav */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  #menu-toggle {
+    background-color: transparent; /* Transparent button background */
+    border: none; /* Remove default button border */
+    color: inherit; /* Inherit text color from nav */
+    cursor: pointer; /* Indicate clickable element */
+    padding: 5px 10px; /* Add padding to the button */
+  }
+  
+  /* Show/hide menu functionality (JavaScript needed) */
+  #menu {
+    transition: display 0.3s ease-in-out; /* Smooth transition effect */
+  }
+  /*personal details, dependents etc*/
+  .employee-details {
+    background-color: #f5f5f5; /* Light gray background */
+    padding: 20px;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .details-list,
+  .tabs {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .details-list li {
+    margin-bottom: 10px; /* Space between details */
+  }
+  
+  .tabs {
+    display: flex; /* Arrange tabs horizontally */
+    margin-bottom: 15px; /* Space between tabs and content */
+  }
+  
+  .tab {
+    padding: 10px 15px; /* Padding for tabs */
+    cursor: pointer; /* Indicate clickable element */
+    border: 1px solid #ccc; /* Light border */
+    border-bottom: none; /* Remove bottom border for active tab */
+  }
+  
+  .tab.active {
+    background-color: #e0e0e0; /* Light gray background for active tab */
+    border-bottom: 1px solid #ccc; /* Add bottom border for active tab */
+  }
+  
+  /*.tab-content {
+ Style for tab content sections (add specific styles as needed)
+
+  }*/
   
   

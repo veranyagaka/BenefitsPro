@@ -10,14 +10,16 @@
 </head>
 <body>
   <nav>
-    <ul>
+    <button id="menu-toggle">Menu</button>
+    <ul id="menu">
       <li><a href="#">Home</a></li>
       <li><a href="#">Benefits</a></li>
       <li><a href="#">Logout</a></li>
     </ul>
   </nav>
   <h1>Welcome, {{ employee.first_name }} {{ employee.last_name }}!</h1>
-  <p>This is your profile page.</p>
+  <p>This is your profile page with Employee ID: {{ employee.employee_id }} and Email: {{ employee.email_address }}</p>
+  
 <!-- Instructions part -->
 <section class="profile-instructions">
   <h2>Profile Instructions</h2>
@@ -42,9 +44,9 @@
   <p>By following these instructions, you can complete your profile and submit applications for benefits efficiently.</p>
 </section>
 <!-- Ends here -->
-
-  <h2>Personal Details</h2>
-  <ul>
+<div class="employee-details">
+  <h2>Employee Details</h2>
+  <ul class="details-list">
     <li>Date of Birth: {{ employee.date_of_birth }}</li>
     <li>Email Address: {{ employee.email_address }}</li>
     <li>Department: {{ employee.department }}</li>
@@ -54,6 +56,18 @@
     <li>Employee Status: {{ employee.get_employee_status_display }}</li>
     <li>Employee Type: {{ employee.get_employee_type_display }}</li>
   </ul>
+  
+  <ul class="tabs">
+    <li class="tab active">Personal Details</li>
+    <li class="tab">Beneficiary</li>
+    <li class="tab">Dependents</li>
+    <li class="tab">Documents</li>
+  </ul>
+  
+  <div class="tab-content">
+    </div>
+</div>
+
 
   <button id="edit-info-btn">Edit Information</button>
 
@@ -170,5 +184,41 @@
     });
 
     </script>
+    
+    <script>
+      // for the menu hehe
+      const menuToggle = document.getElementById('menu-toggle');
+      const menuList = document.getElementById('menu');
+
+      menuToggle.addEventListener('click', function() {
+        if (menuList.style.display === 'none') {
+          menuList.style.display = 'block';
+        } else {
+          menuList.style.display = 'none';
+        }
+      });
+
+    </script>
+    <script>
+      //for the dependent, benefitiaries etc
+      const tabs = document.querySelectorAll('.tab');
+const tabContent = document.querySelector('.tab-content');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', function() {
+    // Remove 'active' class from all tabs
+    tabs.forEach(t => t.classList.remove('active'));
+    
+    // Add 'active' class to the clicked tab
+    this.classList.add('active');
+    
+    // Load content for the clicked tab (replace with your logic)
+    const selectedTab = this.textContent.toLowerCase();
+    // Example: Update tabContent based on selectedTab value
+    tabContent.innerHTML = `You clicked the ${selectedTab} tab!`;
+  });
+});
+
+</script>
 </body>
 </html>
