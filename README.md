@@ -4,7 +4,9 @@ Bullet points
 - [ ] Application requests + Applications table (therefore also the html page)
 - [ ] Admin - approval of applications and update the benefits provided by the company
 - [ ] Log out page
+- [ ] Sessions/ Timeouts to be implemented
 - [ ] Profile page - settings to change password & other preferences
+- [ ] Profile page: Dependents, Benefitiaries (this means more tables)
 - [ ] View the reflection on the applications page
 - [ ] Redirection to various pages + @login_required
 - [ ] Forms.py
@@ -12,7 +14,7 @@ Bullet points
 - [ ] Tables, tables,tables
 - [ ] Better Error Handling
 - [ ] CSS + Images
-- [ ] Navigation on the profiles page
+- [ ] Navigation on the profiles page: Broken links fix
 - [ ] Deployment Finally
 
 <!--For your Benefits Administration System project, here's a list of HTML files you might need:
