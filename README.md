@@ -15,7 +15,15 @@ Bullet points
 - [ ] Better Error Handling
 - [ ] CSS + Images
 - [ ] Navigation on the profiles page: Broken links fix
-- [ ] Deployment Finally
+- [ ] Deployment Finally and some little testing
+# Group them in order / in modules
+## lets start with links and navigation
+## databases, models and migrations
+## Benefits and Applications page!!!!!!
+## Additional info later
+## Testing to see every functionality works
+## Display of info and its css one of the last
+
 
 <!--For your Benefits Administration System project, here's a list of HTML files you might need:
 
