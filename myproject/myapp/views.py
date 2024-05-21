@@ -5,25 +5,23 @@ from enrollment.models import Employee
 from .models import User
 from django.contrib.auth.decorators import login_required
 from .forms import EmployeeUpdateForm
-
-
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
 
 def login_view(request):
     if request.method == 'POST':
         employee_id = request.POST.get('employee_id')
         password = request.POST.get('password')
-        try:
-            employee = Employee.objects.get(employee_id=employee_id, password=password)
-            # If employee exists, set session variable and redirect to profile
-            request.session['employee_id'] = employee.employee_id
+        employee = authenticate(request, employee_id=employee_id, password=password)
+        if employee is not None:
+            login(request, employee)
             return redirect('profile')
-        except Employee.DoesNotExist:
-            # Return an 'invalid login' error message.
+        else:
             return render(request, 'login.html', {'error_message': 'Invalid login'})
     else:
         return render(request, 'login.html')
     
-@login_required
+#@login_required
 def profile_view(request):
     # Assuming employee_id is stored in session
     employee_id = request.session.get('employee_id')
@@ -67,6 +65,9 @@ def register(request):
     else:
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})
+
+#def logout(request):
+  #eturn redirect('login')  # Redirect to login page after logout
 
 def index(request):
     template = loader.get_template('index.html')

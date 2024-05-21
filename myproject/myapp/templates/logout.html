@@ -1,0 +1,26 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benefits Pro - Logout</title>
+  <link rel="stylesheet" href="{% static 'logout.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Benefits Pro</h1>
+  </header>
+  <main class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card text-center">
+      <div class="card-body">
+        <h2 class="mb-4">Logout Successful!</h2>
+        <p>You have been successfully logged out of the Benefits Pro application.</p>
+        <a href="{% url 'login' %}" class="btn btn-primary">Login Again</a>
+        <br>
+        <a href="{% url 'index' %}" class="btn btn-secondary mt-2">Return to Home Page</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -17,7 +17,7 @@
             <h2>Login</h2>
           </div>
           <div class="card-body">
-            <form method="post">
+            <form action="{% url 'login_view' %}" method="POST">
               {% csrf_token %}
               <div class="form-group">
                 <label for="username">Employee ID</label>
