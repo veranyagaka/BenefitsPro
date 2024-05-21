@@ -1,11 +1,29 @@
-okay okay i need to organize my thoughts
-- [x] Login & Database
-- [ ] Benefits Application
-- [ ] Approve or Deny requests by admin
-- [ ] Redirection to various pages
-- [ ] BetterError Handling
-- [ ] CSS
-- [ ] Deployment Finally
+Bullet points
+- [x] Login Redirection
+- [ ] Migrations, Database, Models
+- [ ] Application requests + Applications table (therefore also the html page)
+- [ ] Admin - approval of applications and update the benefits provided by the company
+- [ ] Log out page
+- [ ] Sessions/ Timeouts to be implemented
+- [ ] Profile page - settings to change password & other preferences
+- [ ] Profile page: Dependents, Benefitiaries (this means more tables)
+- [ ] View the reflection on the applications page
+- [ ] Redirection to various pages + @login_required
+- [ ] Forms.py
+- [ ] Reset Password/ Forgot password
+- [ ] Tables, tables,tables
+- [ ] Better Error Handling
+- [ ] CSS + Images
+- [ ] Navigation on the profiles page: Broken links fix
+- [ ] Deployment Finally and some little testing
+# Group them in order / in modules
+## lets start with links and navigation
+## databases, models and migrations
+## Benefits and Applications page!!!!!!
+## Additional info later
+## Testing to see every functionality works
+## Display of info and its css one of the last
+
 
 <!--For your Benefits Administration System project, here's a list of HTML files you might need:
 
