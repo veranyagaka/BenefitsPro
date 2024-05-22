@@ -46,6 +46,12 @@
 <!-- Ends here -->
 <div class="employee-details">
   <h2>Employee Details</h2>
+  <ul class="tabs">
+    <li class="tab active">Personal Details</li>
+    <li class="tab">Beneficiary</li>
+    <li class="tab">Dependents</li>
+    <li class="tab">Documents</li>
+  </ul>
   <ul class="details-list">
     <li>Date of Birth: {{ employee.date_of_birth }}</li>
     <li>Email Address: {{ employee.email_address }}</li>
@@ -57,12 +63,6 @@
     <li>Employee Type: {{ employee.get_employee_type_display }}</li>
   </ul>
   
-  <ul class="tabs">
-    <li class="tab active">Personal Details</li>
-    <li class="tab">Beneficiary</li>
-    <li class="tab">Dependents</li>
-    <li class="tab">Documents</li>
-  </ul>
   
   <div class="tab-content">
     </div>

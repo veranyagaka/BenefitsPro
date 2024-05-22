@@ -70,7 +70,7 @@ def register(request):
     return render(request, 'register.html', {'form': form})
 
 from django.contrib.auth import logout as auth_logout
-from django.urls import reverse
+#from django.urls import reverse
 
 
 def logout_view(request):

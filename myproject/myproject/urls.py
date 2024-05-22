@@ -21,6 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myapp.urls')),
     path('', include('enrollment.urls')),
+    path('', include('benefits.urls')),
+
 
 
 ]
