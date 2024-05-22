@@ -12,13 +12,16 @@ def login_view(request):
     if request.method == 'POST':
         employee_id = request.POST.get('employee_id')
         password = request.POST.get('password')
-        employee = authenticate(request, employee_id=employee_id, password=password)
-        if employee is not None:
-            login(request, employee)
+        try:
+            employee = Employee.objects.get(employee_id=employee_id, password=password)
+            # If user exists, set session variable and redirect to profile
+            request.session['employee_id'] = employee.employee_id
             return redirect('profile')
-        else:
-            return render(request, 'login.html', {'error_message': 'Invalid login'})
+        except Employee.DoesNotExist:
+            # Return an 'invalid login' error message.
+            return render(request, 'login.html', {'error_message': 'Invalid Employee ID or password'})
     else:
+        print('smthsnot right')
         return render(request, 'login.html')
     
 #@login_required
