@@ -69,8 +69,15 @@ def register(request):
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})
 
-#def logout(request):
-  #eturn redirect('login')  # Redirect to login page after logout
+from django.contrib.auth import logout as auth_logout
+from django.urls import reverse
+
+
+def logout_view(request):
+    print("Logging out...")
+    auth_logout(request)
+    print("Redirecting to login...")
+    return redirect('login_view')
 
 def index(request):
     template = loader.get_template('index.html')
