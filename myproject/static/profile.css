@@ -1,225 +1,195 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #c1c9c9;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-  
-  h1, h2 {
-    color: #2e7d32;
-  }
-  
-  button, .btn {
-    background-color: #2e7d32;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-    border-radius: 5px;
-  }
-  
-  button:hover, .btn:hover {
-    background-color: #1b5e20;
-  }
-  
-  #edit-info-form {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #e8f5e9;
-    border-radius: 10px;
-  }
-  .calendar-container {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #e8f5e9;
-    border-radius: 10px;
-    text-align: left;
-    width: 300px; /* Adjust the width to fit your needs */
-  }
-  
-  .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    font-weight: 700;
-  }
-  
-  .calendar-grid {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .calendar-cell {
-    width: calc(100% / 7); /* Divide by 7 to fit a week */
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    text-align: center;
-  }
-  
-  .calendar-cell.header {
-    font-weight: bold;
-    background-color: #2e7d32;
-    color: white;
-  }
-  
-  .calendar-cell.today {
-    background-color: #2e7d32;
-    color: white;
-  }
-  
-  .calendar-cell.empty {
-    background-color: transparent;
-    border: none;
-  }
-  
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  table, th, td {
-    border: 1px solid #ddd;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #2e7d32;
-    color: white;
-  }
-  /* Section for instructions */
-.profile-instructions {
-    background-color: #e0ffff; /* Light baby blue */
-    padding: 10px;
-    border-radius: 10px;
-    color: #336699; /* Darker blue but still light */
-    font-size: 0.8em;
-    max-width: 1020px; /* Limit width to a smaller size */
-    margin: 0 auto; /* Center horizontally */
-    border: 1px solid #ccc;
-  }
-  
-  .profile-instructions h2 {
-    margin-bottom: 5px;
-    font-size: 1.2em; /* Adjust heading font size */
-  }
-  
-  .profile-instructions ol {
-    list-style-type: decimal;
-    padding-left: 15px;
-    margin: 0;
-  }
-  
-  .profile-instructions li {
-    margin-bottom: 5px;
-  }
-  
-  .profile-instructions li b {
-    color: red; /* Highlight important sections in bold red */
-  }
-  
-  .profile-instructions li ul {
-    list-style-type: disc;
-    padding-left: 15px;
-  }
-  
-  .profile-instructions p {
-    margin-bottom: 5px;
-  }
-  
-  .profile-instructions p b {
-    font-weight: bold; /* Highlight important note in bold */
-  }
-  /* the menu part*/
-  nav {
-    background-color: black;
-    color: white;
-    padding: 10px;
-    display: flex; /* Arrange menu button and list horizontally */
-    flex-direction: column;
-    float: left; /* Make the navigation bar float right */
-    width: 150px; 
-  }
-  
-  nav ul {
-    list-style: none; /* Remove default bullet points */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    display: block;
-  }
-  
-  nav li {
-    margin-bottom: 10px;
-    margin: 5px; /* Add spacing between menu items */
-    padding: 5px 10px; 
-  }
-  
-  nav a {
-    color: inherit; /* Inherit text color from nav */
-    text-decoration: none; /* Remove underline from links */
-  }
-  
-  #menu-toggle {
-    background-color: transparent; /* Transparent button background */
-    border: none; /* Remove default button border */
-    color: inherit; /* Inherit text color from nav */
-    cursor: pointer; /* Indicate clickable element */
-    padding: 5px 10px; /* Add padding to the button */
-  }
-  
-  /* Show/hide menu functionality (JavaScript needed) */
-  #menu {
-    transition: display 0.3s ease-in-out; /* Smooth transition effect */
-  }
-  /*personal details, dependents etc*/
-  .employee-details {
-    background-color: #f5f5f5; /* Light gray background */
-    padding: 20px;
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  }
-  
-  .details-list,
-  .tabs {
-    list-style: none; /* Remove default bullet points */
-    padding: 0;
-    margin: 0;
-  }
-  
-  .details-list li {
-    margin-bottom: 10px; /* Space between details */
-  }
-  
-  .tabs {
-    display: flex; /* Arrange tabs horizontally */
-    margin-bottom: 15px; /* Space between tabs and content */
-  }
-  
-  .tab {
-    padding: 10px 15px; /* Padding for tabs */
-    cursor: pointer; /* Indicate clickable element */
-    border: 1px solid #ccc; /* Light border */
-    border-bottom: none; /* Remove bottom border for active tab */
-  }
-  
-  .tab.active {
-    background-color: #e0e0e0; /* Light gray background for active tab */
-    border-bottom: 1px solid #ccc; /* Add bottom border for active tab */
-  }
-  
-  /*.tab-content {
- Style for tab content sections (add specific styles as needed)
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
 
-  }*/
-  
-  
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: #2d4b6f;
+  color: white;
+  width: 250px;
+  padding: 20px;
+}
+
+.sidebar img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.sidebar h1, .sidebar p {
+  text-align: center;
+}
+
+.sidebar nav {
+  margin-top: 20px;
+}
+
+.sidebar nav button {
+  background-color: #1a334e;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar nav ul {
+  list-style-type: none;
+  padding: 0;
+  /*display: none;*/
+}
+
+.sidebar nav ul li {
+  margin: 10px 0;
+}
+
+.sidebar nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.employee-details {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  border-bottom: 2px solid #ddd;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  margin-right: 5px;
+  background-color: #f5f5f5;
+}
+
+.tab.active {
+  background-color: white;
+  border-color: #2d4b6f;
+}
+
+.details-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.details-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #2d4b6f;
+  color: white;
+}
+
+table td .btn {
+  background-color: #2d4b6f;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+#edit-info-btn {
+  background-color: #2d4b6f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#edit-info-form form {
+  margin-top: 20px;
+}
+
+.calendar-container {
+  margin-top: 20px;
+  max-width: 400px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-header button {
+  background-color: #2d4b6f;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-cell {
+  padding: 5px;
+  text-align: center;
+  background-color: #161515;
+  border: 1px solid #ddd;
+}
+
+.calendar-cell.header {
+  background-color: #035f17;
+  color: rgb(24, 66, 145);
+}
+
+.calendar-cell.today {
+  background-color: #807d6a;
+}
+
+.calendar-cell.empty {
+  background-color: #f5f5f5;
+}
+
+.profile-instructions {
+  background-color: #e0ffff;;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.profile-instructions li b {
+  color: red; /* Highlight important sections in bold red */
+}

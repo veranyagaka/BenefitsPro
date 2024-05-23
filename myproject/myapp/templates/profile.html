@@ -1,4 +1,4 @@
-{% load static %} 
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,103 +9,106 @@
   <title>Profile</title>
 </head>
 <body>
-  <nav>
-    <button id="menu-toggle">Menu</button>
-    <ul id="menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="{% url 'benefits' %}">Benefits</a></li>
-      <li><a href="{% url 'logout' %}">Logout</a></li>
-    </ul>
-  </nav>
-  <h1>Welcome, {{ employee.first_name }} {{ employee.last_name }}!</h1>
-  <p>This is your profile page with Employee ID: {{ employee.employee_id }} and Email: {{ employee.email_address }}</p>
-  
-<!-- Instructions part -->
-<section class="profile-instructions">
-  <h2>Profile Instructions</h2>
-  <p>Follow these steps to ensure a smooth and successful application process:</p>
+  <button id="menu-toggle">Menu</button>
 
-  <ol>
-    <li>
-      <b>Profile Completion: </b>Navigate through profile tabs, starting with "Personal Details," filling out all required information and leaving optional fields blank if they don't apply.
-    <li>
-      <p>Dependent Information (Optional): If you have dependents and want to designate a beneficiary pls provide their information and details.</p>
-    </li>
-    <li>
-      <p>Go to the "Documents" tab and upload all necessary supporting documents for your applications.</p>
-    </li>
-    <li>
-      <p><b>Benefits:</b> Once your profile is complete, navigate to the "Benefits" menu and select "New Application" to apply for benefits.</p>
-    </li>
-    <li>
-      <b>Important Note: Applications missing required information (marked with a red asterisk: *) will not be considered.</b> Ensure all necessary details are filled out before submitting your application.</p>
-    </li>
-  </ol>
-  <p>By following these instructions, you can complete your profile and submit applications for benefits efficiently.</p>
-</section>
-<!-- Ends here -->
-<div class="employee-details">
-  <h2>Employee Details</h2>
-  <ul class="tabs">
-    <li class="tab active">Personal Details</li>
-    <li class="tab">Beneficiary</li>
-    <li class="tab">Dependents</li>
-    <li class="tab">Documents</li>
-  </ul>
-  <ul class="details-list">
-    <li>Date of Birth: {{ employee.date_of_birth }}</li>
-    <li>Email Address: {{ employee.email_address }}</li>
-    <li>Department: {{ employee.department }}</li>
-    <li>Position: {{ employee.position }}</li>
-    <li>Hire Date: {{ employee.hire_date }}</li>
-    <li>Salary: {{ employee.salary }}</li>
-    <li>Employee Status: {{ employee.get_employee_status_display }}</li>
-    <li>Employee Type: {{ employee.get_employee_type_display }}</li>
-  </ul>
-  
-  
-  <div class="tab-content">
+  <div class="container">
+    <div class="sidebar">
+      <img src="profile-icon.jpg" alt="Profile Picture">
+      <h1>{{ employee.first_name }} {{ employee.last_name }}</h1>
+      <p>{{ employee.employee_id }}</p>
+      <p>{{ employee.email_address }}</p>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="{% url 'benefits' %}">Benefits</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+      </nav>
+            <!-- Calendar part -->
+            <h2>Calendar</h2>
+            <button id="toggle-calendar-btn">Toggle Calendar</button>
+            <div id="calendar" class="calendar-container" style="display: none;"></div>
     </div>
-</div>
+    <div class="main-content">
+      <!-- Instructions part -->
+      <section class="profile-instructions">
+        <h2>Profile Instructions</h2>
+        <p>Follow these steps to ensure a smooth and successful application process:</p>
+        <ol>
+          <li>
+            <b>Profile Completion:</b> Navigate through profile tabs, starting with "Personal Details," filling out all required information and leaving optional fields blank if they don't apply.
+          </li>
+          <li>
+            <p>Dependent Information (Optional): If you have dependents and want to designate a beneficiary, please provide their information and details.</p>
+          </li>
+          <li>
+            <p>Go to the "Documents" tab and upload all necessary supporting documents for your applications.</p>
+          </li>
+          <li>
+            <p><b>Benefits:</b> Once your profile is complete, navigate to the "Benefits" menu and select "New Application" to apply for benefits.</p>
+          </li>
+          <li>
+            <b>Important Note:</b> Applications missing required information (marked with a red asterisk: *) will NOT be considered. Ensure all necessary details are filled out before submitting your application.
+          </li>
+        </ol>
+        <p>By following these instructions, you can complete your profile and submit applications for benefits efficiently.</p>
+      </section>
+      <!-- Ends here -->
+      <div class="employee-details">
+        <h2>Employee Details</h2>
+        <ul class="tabs">
+          <li class="tab active">Personal Details</li>
+          <li class="tab">Beneficiary</li>
+          <li class="tab">Dependents</li>
+          <li class="tab">Documents</li>
+        </ul>
+        <ul class="details-list">
+          <li>Date of Birth: {{ employee.date_of_birth }}</li>
+          <li>Email Address: {{ employee.email_address }}</li>
+          <li>Department: {{ employee.department }}</li>
+          <li>Position: {{ employee.position }}</li>
+          <li>Hire Date: {{ employee.hire_date }}</li>
+          <li>Salary: {{ employee.salary }}</li>
+          <li>Employee Status: {{ employee.get_employee_status_display }}</li>
+          <li>Employee Type: {{ employee.get_employee_type_display }}</li>
+        </ul>
+        <div class="tab-content"></div>
+      </div>
+      <button id="edit-info-btn">Edit Information</button>
+      <div id="edit-info-form" style="display: none;">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Update Information</button>
+        </form>
+      </div>
+      <h2>Applications</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Benefit Program</th>
+            <th>Date Applied</th>
+            <th>Status</th>
+            <th>Documents</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Assuming you have a list of applications -->
+          {% for application in applications %}
+          <tr>
+            <td>{{ application.program }}</td>
+            <td>{{ application.date_applied }}</td>
+            <td>{{ application.get_status_display }}</td>
+            <td>{{ application.documents }}</td>
+            <td><a href="#" class="btn">View Application</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
 
-
-  <button id="edit-info-btn">Edit Information</button>
-
-  <div id="edit-info-form" style="display: none;">
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Update Information</button>
-    </form>
+    </div>
   </div>
-  <h2>Applications</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Benefit Program</th>
-        <th>Date Applied</th>
-        <th>Status</th>
-        <th>Documents</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Assuming you have a list of applications -->
-      {% for application in applications %}
-      <tr>
-        <td>{{ application.program }}</td>
-        <td>{{ application.date_applied }}</td>
-        <td>{{ application.get_status_display }}</td>
-        <td>{{ application.documents }}</td>
-        <td><a href="#" class="btn">View Application</a></td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-   <!--Calendar part-->
-   <h2>Calendar</h2>
-   <button id="toggle-calendar-btn">Toggle Calendar</button>
-   <div id="calendar" class="calendar-container" style="display: none;"></div>
   <script>
     const editInfoBtn = document.getElementById('edit-info-btn');
     const editInfoForm = document.getElementById('edit-info-form');
@@ -113,9 +116,7 @@
     editInfoBtn.addEventListener('click', () => {
       editInfoForm.style.display = editInfoForm.style.display === 'none' ? 'block' : 'none';
     });
-  </script>
- 
-  <script>
+
     // Calendar script
     function generateCalendar() {
       const calendarDiv = document.getElementById('calendar');
@@ -183,42 +184,37 @@
       calendarDiv.style.display = calendarDiv.style.display === 'none' ? 'block' : 'none';
     });
 
-    </script>
-    
-    <script>
-      // for the menu hehe
-      const menuToggle = document.getElementById('menu-toggle');
-      const menuList = document.getElementById('menu');
+    // Menu toggle script
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuList = document.getElementsByClassName('sidebar');
 
-      menuToggle.addEventListener('click', function() {
-        if (menuList.style.display === 'none') {
-          menuList.style.display = 'block';
-        } else {
-          menuList.style.display = 'none';
-        }
+    menuToggle.addEventListener('click', function() {
+      if (menuList.style.display === 'none') {
+        menuList.style.display = 'block';
+      } else {
+        menuList.style.display = 'none';
+      }
+    });
+
+    // Tabs script
+    const tabs = document.querySelectorAll('.tab');
+    const tabContent = document.querySelector('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        // Remove 'active' class from all tabs
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        // Add 'active' class to the clicked tab
+        this.classList.add('active');
+        
+        // Load content for the clicked tab (replace with your logic)
+        const selectedTab = this.textContent.toLowerCase();
+        // Example: Update tabContent based on selectedTab value
+        tabContent.innerHTML = `You clicked the ${selectedTab} tab!`;
       });
-
-    </script>
-    <script>
-      //for the dependent, benefitiaries etc
-      const tabs = document.querySelectorAll('.tab');
-const tabContent = document.querySelector('.tab-content');
-
-tabs.forEach(tab => {
-  tab.addEventListener('click', function() {
-    // Remove 'active' class from all tabs
-    tabs.forEach(t => t.classList.remove('active'));
-    
-    // Add 'active' class to the clicked tab
-    this.classList.add('active');
-    
-    // Load content for the clicked tab (replace with your logic)
-    const selectedTab = this.textContent.toLowerCase();
-    // Example: Update tabContent based on selectedTab value
-    tabContent.innerHTML = `You clicked the ${selectedTab} tab!`;
-  });
-});
-
-</script>
+    });
+  </script>
+  {% include 'footer.html' %}
 </body>
 </html>
