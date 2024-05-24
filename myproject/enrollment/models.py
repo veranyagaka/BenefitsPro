@@ -55,5 +55,5 @@ class EmployeeBenefits(models.Model):
         return f"{self.first_name} {self.last_name} - Employee ID: {self.employee_id}"
     class Meta:
         app_label = 'enrollment'
-        db_table = 'employee_benefits'
+        #db_table = 'employee_benefits'
 
