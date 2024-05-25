@@ -1,0 +1,111 @@
+
+<div class="container">
+    {% load static %}  <link rel="stylesheet" href="{% static 'sidebar.css' %}"> 
+
+    <div class="sidebar">
+      <img src="profile-icon.jpg" alt="Profile Picture">
+      <h1>{{ employee.first_name }} {{ employee.last_name }}</h1>
+      <p>{{ employee.employee_id }}</p>
+      <p>{{ employee.email_address }}</p>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="{% url 'benefits' %}">Benefits</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+      </nav>
+            <!-- Calendar part -->
+            <h2>Calendar</h2>
+            <button id="toggle-calendar-btn">Toggle Calendar</button>
+            <div id="calendar" class="calendar-container" style="display: none;"></div>
+    </div>
+    <script>
+
+    // Calendar script
+    function generateCalendar() {
+      const calendarDiv = document.getElementById('calendar');
+      const today = new Date();
+      let currentMonth = today.getMonth();
+      let currentYear = today.getFullYear();
+      const currentDay = today.getDate();
+
+      const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+
+      const daysOfWeek = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+
+      function getDaysInMonth(month, year) {
+        return new Date(year, month + 1, 0).getDate();
+      }
+
+      function createCalendar(month, year) {
+        let firstDay = new Date(year, month).getDay();
+        let daysInMonth = getDaysInMonth(month, year);
+
+        let calendarHTML = `
+          <div class="calendar-header">
+            <button id="prev-month">Previous Month</button>
+            <div>${months[month]} ${year}</div>
+            <button id="next-month">Next Month</button>
+          </div>
+          <div class="calendar-grid">
+            ${daysOfWeek.map(day => `<div class="calendar-cell header">${day}</div>`).join('')}
+            ${Array(firstDay).fill('<div class="calendar-cell empty"></div>').join('')}
+            ${Array.from({ length: daysInMonth }, (v, i) => i + 1).map(day => {
+              const todayClass = day === currentDay && month === currentMonth && year === currentYear ? 'today' : '';
+              return `<div class="calendar-cell ${todayClass}">${day}</div>`;
+            }).join('')}
+          </div>
+        `;
+
+        calendarDiv.innerHTML = calendarHTML;
+
+        document.getElementById('prev-month').addEventListener('click', () => {
+          const prevMonth = month === 0 ? 11 : month - 1;
+          const prevYear = month === 0 ? year - 1 : year;
+          createCalendar(prevMonth, prevYear);
+        });
+
+        document.getElementById('next-month').addEventListener('click', () => {
+          const nextMonth = month === 11 ? 0 : month + 1;
+          const nextYear = month === 11 ? year + 1 : year;
+          createCalendar(nextMonth, nextYear);
+        });
+      }
+
+      createCalendar(currentMonth, currentYear);
+    }
+
+    generateCalendar();
+
+    // Toggle calendar visibility
+    const toggleCalendarBtn = document.getElementById('toggle-calendar-btn');
+    const calendarDiv = document.getElementById('calendar');
+
+    toggleCalendarBtn.addEventListener('click', () => {
+      calendarDiv.style.display = calendarDiv.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Menu toggle script
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuList = document.getElementsByClassName('sidebar');
+
+    menuToggle.addEventListener('click', function() {
+      if (menuList.style.display === 'none') {
+        menuList.style.display = 'block';
+      } else {
+        menuList.style.display = 'none';
+      }
+    });
+    ///fixed?
+    document.addEventListener('DOMContentLoaded', function() {
+    const menuToggleBtn = document.getElementById('menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+
+    menuToggleBtn.addEventListener('click', function() {
+      sidebar.classList.toggle('collapsed');
+    });
+  });
+    </script>
