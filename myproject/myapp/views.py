@@ -24,7 +24,6 @@ def login_view(request):
         print('smthsnot right')
         return render(request, 'login.html')
     
-#@login_required
 def profile_view(request):
     # Assuming employee_id is stored in session
     employee_id = request.session.get('employee_id')
@@ -81,4 +80,7 @@ def logout_view(request):
 
 def index(request):
     template = loader.get_template('index.html')
+    return HttpResponse(template.render())
+def settings_view(request):
+    template = loader.get_template('user_settings.html')
     return HttpResponse(template.render())

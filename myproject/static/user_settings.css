@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    color: #333;
+    margin-top: 20px;
+}
+
+hr {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+select {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 8px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Dark mode toggle */
+#dark-mode {
+    vertical-align: middle;
+}
+
+/* Change password form */
+#change-password-form {
+    max-width: 400px;
+}
+
+/* Change profile picture form */
+#change-profile-pic-form {
+    max-width: 400px;
+}
+
+/* Profile picture input */
+#profile-pic {
+    margin-bottom: 10px;
+}

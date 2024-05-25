@@ -15,8 +15,8 @@ class Employee(models.Model):
         ('part-time', 'Part-Time'),
         ('temporary', 'Temporary')
     ]
-    password = models.CharField(max_length=255, default='1234', null=False)
-    employee_id = models.AutoField(primary_key=True)
+    password = models.CharField(max_length=255, default='1234', null=True)
+    employee_id = models.AutoField(primary_key=True, unique=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     date_of_birth = models.DateField()
