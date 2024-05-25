@@ -20,13 +20,13 @@ def process_enrollment(request):
             employee = Employee.objects.get(employee_id=employee_id, last_name=last_name, first_name=first_name)
             
             # Remove previous benefits
-            employee.employee_benefits.all().delete()
+            #employee.employee_benefits.all().delete()
             
             # Add selected benefits to the employee
             for benefit_id in selected_benefits:
                 benefit = Benefits.objects.get(id=benefit_id)
-                EmployeeBenefits.objects.create(employee=employee, benefit=benefit)
-            
+                EmployeeBenefits.objects.create(employee_id=employee.employee_id, last_name=employee.last_name,
+                                     first_name=employee.first_name)
             return redirect('profile')  # Redirect to profile page (make sure to define this URL)
         else:
             return render(request, 'enrollment_fail.html', {'message': 'Employee not found'})

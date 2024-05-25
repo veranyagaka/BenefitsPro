@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import EmployeeUpdateForm
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
+from benefits.models import Application
 
 def login_view(request):
     if request.method == 'POST':
@@ -32,6 +33,8 @@ def profile_view(request):
     if employee_id:
         try:
             employee = Employee.objects.get(employee_id=employee_id)
+            applications = Application.objects.filter(employee=employee)
+
             if request.method == 'POST':
                 form = EmployeeUpdateForm(request.POST, instance=employee)
                 if form.is_valid():
@@ -43,6 +46,7 @@ def profile_view(request):
             context = {
                 'form': form,
                 'employee': employee,
+                'applications': applications,
             }
             print(f"Employee found: {employee.first_name} {employee.last_name}")
             return render(request, 'profile.html', context)
