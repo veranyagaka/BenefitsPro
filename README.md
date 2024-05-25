@@ -1,21 +1,23 @@
 Bullet points
-- [x] Login Redirection
-- [ ] Migrations, Database, Models
-- [ ] Application requests + Applications table (therefore also the html page)
+- [x] Login Required
+- [ ] Migrations, Database, Models (sorta know how they work noe
+- [ ] Application requests + Applications table (therefore also the html page which is the enrollment page actually)
 - [ ] Admin - approval of applications and update the benefits provided by the company
-- [ ] Log out page
+- [ ] Log out page (initial setup applied but not functioning)
 - [ ] Sessions/ Timeouts to be implemented
-- [ ] Profile page - settings to change password & other preferences
-- [ ] Profile page: Dependents, Benefitiaries (this means more tables)
-- [ ] View the reflection on the applications page
+- [ ] Profile page - settings to change password & other preferences (added but functionality not implemented)
+- [ ] Profile page: Dependents, Benefitiaries (this means more tables) 
+- [ ] View the reflection on the applications page (NI)
 - [ ] Redirection to various pages + @login_required
 - [ ] Forms.py
-- [ ] Reset Password/ Forgot password
+- [ ] Reset Password/ Forgot password (NI)
 - [ ] Tables, tables,tables
 - [ ] Better Error Handling
 - [ ] CSS + Images
-- [ ] Navigation on the profiles page: Broken links fix
-- [ ] Deployment Finally and some little testing
+- [ ] Navigation on the profiles page: Broken links fix (sort of fixed)
+- [ ] Settings.py
+- [ ] Testing to see everything works 100%
+- [ ] Deployment Finally
 # Group them in order / in modules
 ## lets start with links and navigation
 ## databases, models and migrations
