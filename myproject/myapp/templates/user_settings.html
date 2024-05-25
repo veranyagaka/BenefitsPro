@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefitspro - User Settings</title>
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'user_settings.css' %}"> 
+</head>
+<body>
+    {% include 'sidebar.html' %} 
+    <div class="main-content">
+    <h1>Benefitspro - User Settings</h1>
+    <hr>
+
+    <h2>Change Profile Picture</h2>
+    <form id="change-profile-pic-form">
+        <input type="file" id="profile-pic" accept="image/*" required>
+        <button type="submit">Change Profile Picture</button>
+    </form>
+
+    <h2>Change Password</h2>
+    <form id="change-password-form">
+        <label for="current-password">Current Password:</label>
+        <input type="password" id="current-password" required>
+        <label for="new-password">New Password:</label>
+        <input type="password" id="new-password" required>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" required>
+        <button type="submit">Change Password</button>
+    </form>
+
+    <h2>Settings</h2>
+    <form id="user-settings-form">
+        <label for="dark-mode">Dark Mode:</label>
+        <input type="checkbox" id="dark-mode">
+        <label for="language">Language:</label>
+        <select id="language">
+            <option value="en" selected>English</option>
+        </select>
+        <button type="submit">Update Settings</button>
+    </form>
+
+    <script>
+        changeProfilePicture();
+        changePassword();
+        updateSettings();
+    </script>
+</body>
+</html>
