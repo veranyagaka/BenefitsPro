@@ -6,7 +6,8 @@ Bullet points
 - [ ] Log out page (initial setup applied but not functioning)
 - [ ] Sessions/ Timeouts to be implemented
 - [ ] Profile page - settings to change password & other preferences (added but functionality not implemented)
-- [ ] Profile page: Dependents, Benefitiaries (this means more tables) 
+- [ ] Profile page: Dependents, Benefitiaries (this means more tables)
+- [ ] Profile page - Menu
 - [ ] View the reflection on the applications page (NI)
 - [ ] Redirection to various pages + @login_required
 - [ ] Forms.py
