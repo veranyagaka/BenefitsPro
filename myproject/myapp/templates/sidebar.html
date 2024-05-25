@@ -8,7 +8,7 @@
       <p>{{ employee.email_address }}</p>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="{% url 'profile_view' %}">Home</a></li>
           <li><a href="{% url 'benefits' %}">Benefits</a></li>
           <li><a href="{% url 'logout' %}">Logout</a></li>
         </ul>
