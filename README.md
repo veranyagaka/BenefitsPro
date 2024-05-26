@@ -27,7 +27,7 @@ Bullet points
 ## Testing to see every functionality works
 ## Display of info and its css one of the last
 
-
+# timestamp: currently working on the applications part of the project
 <!--For your Benefits Administration System project, here's a list of HTML files you might need:
 
 index.html: Landing page or dashboard for the system.
