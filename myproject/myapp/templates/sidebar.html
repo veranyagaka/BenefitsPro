@@ -1,6 +1,57 @@
-<div class="container">
-    {% load static %}  <link rel="stylesheet" href="{% static 'sidebar.css' %}"> 
+{% load static %}
+<div class = header>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <div class="nav-bar">
+    <div class="logo">
+      <img src="#" alt="BenefitsPro Logo">
+      <span>BenefitsPro</span>
+    </div>
+    <div class="menu-icon icon" data-tooltip="Menu" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+        <span class="tooltip">Menu</span>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+      <span class="tooltip">Search</span>
+      <div class="icon" data-tooltip="Search">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+    <div class="icons">
+      <div class="icon" data-tooltip="Notification">
+        <i class="fas fa-bell"></i>
+        <span class="tooltip">Notification</span>
+      </div>
+
+      <div class="settings-icon icon" data-tooltip="Settings">
+        <i class="fas fa-cog"></i>
+        <span class="tooltip">Settings</span>
+    </div>
+      <div class="icon" data-tooltip="Account">
+        <i class="fas fa-user"></i>
+        <span class="tooltip">Account</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const icons = document.querySelectorAll('.icon');
+    icons.forEach(icon => {
+      icon.addEventListener('mouseover', () => {
+        icon.querySelector('.tooltip').style.visibility = 'visible';
+        icon.querySelector('.tooltip').style.opacity = 1;
+      });
+      icon.addEventListener('mouseout', () => {
+        icon.querySelector('.tooltip').style.visibility = 'hidden';
+        icon.querySelector('.tooltip').style.opacity = 0;
+      });
+    });
+  </script>
+  </div>
+<div class="container">
+      <link rel="stylesheet" href="{% static 'sidebar.css' %}"> 
+    
     <div class="sidebar">
       <img src="{% static 'images/profile-icon.jpg' %}" alt="Profile Picture">
       <h1>{{ employee.first_name }} {{ employee.last_name }}</h1>
