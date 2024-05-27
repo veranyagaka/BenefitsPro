@@ -1,7 +1,4 @@
   footer {
-    position: absolute;
-    bottom: 0;
-    width: 75%;
     background-color: #f2f2f2;  /* Light gray background */
     padding: 1rem 2rem;  /* Add some padding for content */
     text-align: center;  /* Center the content horizontally */

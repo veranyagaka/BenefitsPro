@@ -1,11 +1,23 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import EmployeeBenefits, Employee
-from benefits.models import Benefits
+from benefits.models import Benefits, Application
+from django.apps import apps
+
 
 def enrollment(request):
     #return render(request, 'enrollment.html')
+    employee_id = request.session.get('employee_id')
+
+    employee = Employee.objects.get(employee_id=employee_id)
     benefits = Benefits.objects.all()
-    return render(request, 'enrollment.html', {'benefits': benefits})
+    context = {
+                'employee': employee,
+                'benefits': benefits,
+            }
+    return render(request, 'enrollment.html', context)
+    #benefits = Benefits.objects.all()
+    #return render(request, 'enrollment.html', {'benefits': benefits})
+
 
 def process_enrollment(request):
     if request.method == 'POST':
@@ -13,20 +25,17 @@ def process_enrollment(request):
         last_name = request.POST['last_name']
         first_name = request.POST['first_name']
         selected_benefits = request.POST.getlist('benefits[]')
-
-        
         # Check if employee exists in Employee table
         if Employee.objects.filter(employee_id=employee_id, last_name=last_name, first_name=first_name).exists():
             employee = Employee.objects.get(employee_id=employee_id, last_name=last_name, first_name=first_name)
-            
-            # Remove previous benefits
-            #employee.employee_benefits.all().delete()
-            
-            # Add selected benefits to the employee
+            application = Application(employee=employee)
+            application.save()  # Save to get an ID for the many-to-many relationship
+
+        # Add selected benefits to the application
             for benefit_id in selected_benefits:
-                benefit = Benefits.objects.get(id=benefit_id)
-                EmployeeBenefits.objects.create(employee_id=employee.employee_id, last_name=employee.last_name,
-                                     first_name=employee.first_name)
+                benefit = get_object_or_404(Benefits, id=benefit_id)
+                application.benefits.add(benefit)
+                application.save()
             return redirect('profile')  # Redirect to profile page (make sure to define this URL)
         else:
             return render(request, 'enrollment_fail.html', {'message': 'Employee not found'})

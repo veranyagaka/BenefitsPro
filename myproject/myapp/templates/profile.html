@@ -80,9 +80,19 @@
           <!--Working on the applications part rn -->
           {% for application in applications %}
           <tr>
-            <td>{{ application.program }}</td>
+            <td> {% for benefit in application.benefits.all %}
+              {{ benefit.name }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}</td>
             <td>{{ application.date_applied }}</td>
-            <td>{{ application.get_status_display }}</td>
+            <td class="
+            {% if application.status == 'Pending' %}
+                status-pending
+            {% elif application.status == 'Approved' %}
+                status-approved
+            {% elif application.status == 'Denied' %}
+                status-denied
+            {% endif %}
+        ">{{ application.get_status_display }}</td>
             <td>{{ application.documents }}</td>
             <td><a href="#" class="btn">View Application</a></td>
           </tr>

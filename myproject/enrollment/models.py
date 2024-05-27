@@ -1,8 +1,7 @@
 from django.db import models
+#from benefits.models import Benefits
 
 # Create your models here.
-from django.db import models
-
 class Employee(models.Model):
     EMPLOYEE_STATUS_CHOICES = [
         ('active', 'Active'),
@@ -42,9 +41,8 @@ class Employee(models.Model):
         db_table = 'employee'
         
 class EmployeeBenefits(models.Model):
-    employee_id = models.IntegerField(primary_key=True)
-    last_name = models.CharField(max_length=50)
-    first_name = models.CharField(max_length=50)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    #benefit = models.ForeignKey(Benefits, on_delete=models.CASCADE)
     health_insurance = models.BooleanField(default=False)
     dental_insurance = models.BooleanField(default=False)
     vision_insurance = models.BooleanField(default=False)
@@ -52,7 +50,7 @@ class EmployeeBenefits(models.Model):
     retirement_savings = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} - Employee ID: {self.employee_id}"
+        return f"{self.employee.first_name} {self.employee.last_name} - Benefits"
     class Meta:
         app_label = 'enrollment'
         #db_table = 'employee_benefits'
