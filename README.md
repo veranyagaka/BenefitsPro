@@ -18,6 +18,7 @@ Bullet points
 - [ ] Navigation on the profiles page: Broken links fix (sort of fixed)
 - [ ] Settings.py
 - [ ] Testing to see everything works 100%
+- [ ] Changing favicon i dont like it as of now
 - [ ] Deployment Finally
 # Group them in order / in modules
 ## lets start with links and navigation
@@ -28,6 +29,7 @@ Bullet points
 ## Display of info and its css one of the last
 
 # timestamp: currently working on the applications part of the project
+
 <!--For your Benefits Administration System project, here's a list of HTML files you might need:
 
 index.html: Landing page or dashboard for the system.
