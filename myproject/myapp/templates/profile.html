@@ -41,12 +41,12 @@
       <div class="employee-details">
         <h2>Employee Details</h2>
         <ul class="tabs">
-          <li class="tab active">Personal Details</li>
-          <li class="tab">Beneficiary</li>
-          <li class="tab">Dependents</li>
-          <li class="tab">Documents</li>
+          <li class="tab active" data-target="personal-details">Personal Details</li>
+          <li class="tab" data-target="beneficiary-details">Beneficiary</li>
+          <li class="tab" data-target="dependents">Dependents</li>
+          <li class="tab" data-target="documents-details">Documents</li>
         </ul>
-        <ul class="details-list active">
+        <ul id="personal-details" class="details-list active">
           <li>Date of Birth: {{ employee.date_of_birth }}</li>
           <li>Email Address: {{ employee.email_address }}</li>
           <li>Department: {{ employee.department }}</li>
@@ -62,11 +62,11 @@
           <li>Employee Type: {{ employee.get_employee_type_display }}</li>
 
         </ul>
-        <ul id="dependents"class="details-list" style="display: none;">
+        <ul id="dependents" class="details-list" style="display: none;">
           <!-- Dependents Details -->
           <!-- Add your dependents details here -->
         </ul>
-        <ul id="documents-details"class="details-list" style="display: none;">
+        <ul id="documents-details" class="details-list" style="display: none;">
           <!-- Documents Details -->
           <!-- Add your documents details here -->
         </ul>      </div>
@@ -122,21 +122,22 @@
     editInfoBtn.addEventListener('click', () => {
       editInfoForm.style.display = editInfoForm.style.display === 'none' ? 'block' : 'none';
     });
+    document.addEventListener('DOMContentLoaded', () => {
 
     // Tabs script
-const tabs = document.querySelectorAll('.tab');
-const detailsLists = document.querySelectorAll('.details-list');
+      const tabs = document.querySelectorAll('.tab');
+      const detailsLists = document.querySelectorAll('.details-list');
 
 tabs.forEach(tab => {
-  tab.addEventListener('click', function() {
+  tab.addEventListener('click', () => {
     // Remove 'active' class from all tabs
     tabs.forEach(t => t.classList.remove('active'));
     
     // Add 'active' class to the clicked tab
-    this.classList.add('active');
+    tab.classList.add('active');
     
     // Get the target details list ID
-    const targetId = this.getAttribute('data-target');
+    const targetId = tab.getAttribute('data-target');
     
     // Hide all details lists
     detailsLists.forEach(list => list.classList.remove('active'));
@@ -145,6 +146,7 @@ tabs.forEach(tab => {
     document.getElementById(targetId).classList.add('active');
   });
 });
+    });
   </script>
   {% include 'footer.html' %}
 </body>
