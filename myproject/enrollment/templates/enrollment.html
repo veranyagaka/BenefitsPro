@@ -21,7 +21,7 @@
             <h1>Apply for Your Benefits</h1>
             <p>Secure your financial future and explore health, wellness, and retirement plans that empower you to live life to the fullest.</p>
         </header>
-        <form action="{% url 'process_enrollment' %}" method="post">
+        <form id="enrollment-form" action="{% url 'process_enrollment' %}" method="post">
             {% csrf_token %}
             <section>
                 <h2>Personal Information</h2>
@@ -47,6 +47,24 @@
         </form>
     </div>
     {% include '/home/vera/Desktop/benefitspro/myproject/myapp/templates/footer.html' %} 
+    <div id="success-popup">Application successful!</div>
 
+    <script>
+        document.getElementById('enrollment-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from submitting immediately
+
+    // Simulate form submission process
+    setTimeout(function() {
+        document.getElementById('success-popup').style.display = 'block';
+        setTimeout(function() {
+            document.getElementById('success-popup').style.display = 'none';
+            // Submit the form after showing the popup
+            event.target.submit();
+        }, 5000); // Hide after 5 seconds
+    }, 1000); // Adjust this delay as needed to simulate processing
+});
+
+    </script>
+</div>
 </body>
 </html>

@@ -50,7 +50,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'myapp.middleware.CustomAuthenticationMiddleware',
+
 ]
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 ROOT_URLCONF = 'myproject.urls'
 
@@ -128,8 +131,8 @@ STATIC_URL = 'static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS=[BASE_DIR /'static']
 
-LOGIN_URL=['login_view']
-LOGIN_REDIRECT_URL=['login_view']
+LOGIN_URL = 'login_view'
+LOGIN_REDIRECT_URL = 'profile_view'
 
 # Default primary key field type
 

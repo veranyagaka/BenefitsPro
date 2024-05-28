@@ -1,11 +1,12 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.template import loader
 from django.shortcuts import render, redirect
 from enrollment.models import Employee
 from .models import User
 from django.contrib.auth.decorators import login_required
 from .forms import EmployeeUpdateForm
-from django.contrib.auth import authenticate, login
+#from django.contrib.auth import authenticate, login
+
 from django.shortcuts import render, redirect
 from benefits.models import Application
 
@@ -21,12 +22,18 @@ def login_view(request):
         except Employee.DoesNotExist:
             # Return an 'invalid login' error message.
             return render(request, 'login.html', {'error_message': 'Invalid Employee ID or password'})
-    else:
-        print('smthsnot right')
+    elif request.method == 'GET':
+        # This block will be executed when the form is loaded
+        # and a GET request is made to the login page
+        print('smths not right')
         return render(request, 'login.html')
+    else:
+        # This block will be executed for any other request method
+        # It's a good idea to log these cases for debugging purposes
+        print(f'Unexpected request method: {request.method}')
+        return HttpResponseBadRequest('Bad request method')
     
-#@login_required(login_url='/login/')
-#@login_required(login_url=LOGIN_REDIRECT_URL)
+#@login_required
 def profile_view(request):
     # Assuming employee_id is stored in session
     employee_id = request.session.get('employee_id')
@@ -55,11 +62,10 @@ def profile_view(request):
         except Employee.DoesNotExist:
             print("Employee not found in database")
             # Handle the case where the employee does not exist
-            return redirect('enrollment')  # Redirect to the enrollment page or login page
+            return redirect('register')  # Redirect to the enrollment page or login page
     else:
         # Handle the case where employee_id is not in the session
-        print("Employee ID not found in session")
-        return redirect('register')  # Redirect to the enrollment page or login page
+        return redirect('login')   # Redirect to the enrollment page or login page
 
 #to handle form submission
 from .forms import RegisterForm
