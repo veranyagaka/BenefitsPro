@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benefits Page</title>
     {% load static %}<link rel="stylesheet" href="{% static 'benefits.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     {% include 'favicon.html' %}
 
 </head>
@@ -18,34 +20,72 @@
     </header>
     <main>
         <div class="btn-container">
-            <a href="{% url 'enrollment' %}" class="btn">New Application</a>
+            <a href="{% url 'enrollment' %}" class="btn"><i class="fas fa-plus"></i>
+                New Application</a>
             <a href="#" class="btn">View Applications</a>
         </div>
         <h2>Benefits</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Benefit Program</th>
-                    <th>Date Applied</th>
-                    <th>Status</th>
-                    <th>Documents</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>#</td>
-                    <td>#</td>
-                    <td>#</td>
-                    <td>#</td>
-                    <td>#</td>
-                    <td>
-                        <a href="#" class="btn">Edit</a>
-                        <a href="#" class="btn">Delete</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<table>
+    <thead>
+        <tr>
+            <th>Benefit Program</th>
+            <th>Date Applied</th>
+            <th>Status</th>
+            <th>Documents</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="5"><h3>Accepted Benefits</h3></td>
+        </tr>
+        {% for benefit in accepted_benefits %}
+        <tr>
+            <td>{{ benefit.program }}</td>
+            <td>{{ benefit.date_applied }}</td>
+            <td>{{ benefit.status }}</td>
+            <td>{{ benefit.documents }}</td>
+            <td>
+                <a href="#" class="btn">Edit</a>
+                <a href="#" class="btn">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+        <tr>
+            <td colspan="5"><h3>Pending Benefits</h3></td>
+        </tr>
+        {% for benefit in pending_benefits %}
+        <tr>
+            <td>{{ benefit.program }}</td>
+            <td>{{ benefit.date_applied }}</td>
+            <td>{{ benefit.status }}</td>
+            <td>{{ benefit.documents }}</td>
+            <td>
+                <a href="#" class="btn">Edit</a>
+                <a href="#" class="btn">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+        <tr>
+            <td colspan="5"><h3>Rejected Benefits</h3></td>
+        </tr>
+        {% for benefit in rejected_benefits %}
+        <tr>
+            <td>{{ benefit.program }}</td>
+            <td>{{ benefit.date_applied }}</td>
+            <td>{{ benefit.status }}</td>
+            <td>{{ benefit.documents }}</td>
+            <td>
+                <a href="#" class="btn">Edit</a>
+                <a href="#" class="btn">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
     </main>
 </body>
 {% include '/home/vera/Desktop/benefitspro/myproject/myapp/templates/footer.html' %} 
