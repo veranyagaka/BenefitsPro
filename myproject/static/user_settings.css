@@ -1,21 +1,24 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
     color: #333;
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
+
 .main-content {
     flex-grow: 1;
     padding: 20px;
-  }
+}
 
-h1 {
+h1, h2 {
     color: #333;
+    transition: color 0.3s;
 }
 
 h2 {
-    color: #333;
     margin-top: 20px;
 }
 
@@ -23,6 +26,7 @@ hr {
     border: 1px solid #ccc;
     margin-top: 10px;
     margin-bottom: 20px;
+    transition: border-color 0.3s;
 }
 
 form {
@@ -32,6 +36,7 @@ form {
 label {
     display: block;
     margin-bottom: 5px;
+    transition: color 0.3s;
 }
 
 input[type="text"],
@@ -42,6 +47,7 @@ select {
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 button {
@@ -50,6 +56,7 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
@@ -78,4 +85,51 @@ input[type="checkbox"] {
 /* Profile picture input */
 #profile-pic {
     margin-bottom: 10px;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode h1,
+body.dark-mode h2 {
+    color: #e0e0e0;
+}
+
+body.dark-mode hr {
+    border-color: #444;
+}
+
+body.dark-mode label {
+    color: #e0e0e0;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="file"],
+body.dark-mode select {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode button {
+    background-color: #444;
+    color: #e0e0e0;
+}
+
+body.dark-mode button:hover {
+    background-color: #666;
+}
+.dark-mode-toggle-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dark-mode-toggle-container label {
+    font-size: 18px;
+    margin-right: 10px;
 }
