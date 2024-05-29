@@ -1,5 +1,6 @@
 Bullet points
 - [x] Login Required
+- [ ] Forms for changing password,update/edit benefitiaries etc..
 - [ ] Migrations, Database, Models (sorta know how they work noe
 - [ ] Application requests + Applications table (therefore also the html page which is the enrollment page actually)
 - [ ] Admin - approval of applications and update the benefits provided by the company
