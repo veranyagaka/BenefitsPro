@@ -44,7 +44,6 @@
           <li class="tab active" data-target="personal-details">Personal Details</li>
           <li class="tab" data-target="beneficiary-details">Beneficiary</li>
           <li class="tab" data-target="dependents">Dependents</li>
-          <li class="tab" data-target="documents-details">Documents</li>
         </ul>
         <ul id="personal-details" class="details-list active">
           <li>Date of Birth: {{ employee.date_of_birth }}</li>
@@ -56,20 +55,57 @@
           <li>Employee Status: {{ employee.get_employee_status_display }}</li>
           <li>Employee Type: {{ employee.get_employee_type_display }}</li>
         </ul>
-        <ul id="beneficiary-details" class="details-list" style="display: none;">
-          <!-- Beneficiary Details -->
+        <ul id="beneficiary-details" class="details-list" >
           <!-- Add your beneficiary details here -->
-          <li>Employee Type: {{ employee.get_employee_type_display }}</li>
+          <h2>Beneficiary Information (Optional)</h2>
 
+          {% if beneficiaries %}
+            {% for beneficiary in beneficiaries %}
+              <li>Name: {{ beneficiary.name }}</li>
+              <li>Date of Birth: {{ beneficiary.date_of_birth }}</li>
+              <li>Relationship: {{ beneficiary.relationship }}</li>
+            {% endfor %}
+          {% else %}
+            <p>You haven't added any beneficiary information yet.</p>
+          {% endif %}
+        
+          <button id="add-beneficiary-btn">Add Beneficiary</button>
         </ul>
-        <ul id="dependents" class="details-list" style="display: none;">
+        <ul id="dependents" class="details-list">
           <!-- Dependents Details -->
-          <!-- Add your dependents details here -->
+          <h2>Dependent Information (Optional)</h2>
+
+  {% if dependents.exists %}
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date of Birth</th>
+          <th>Relationship</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dependent in dependents %}
+          <tr>
+            <td>{{ dependent.name }}</td>
+            <td>{{ dependent.date_of_birth }}</td>
+            <td>{{ dependent.relationship }}</td>
+            <td>
+              <a href="#" class="btn">Edit</a>
+              <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this dependent?');">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>You haven't added any dependent information yet.</p>
+  {% endif %}
+
+  <button id="add-dependent-btn">Add Dependent</button>
         </ul>
-        <ul id="documents-details" class="details-list" style="display: none;">
-          <!-- Documents Details -->
-          <!-- Add your documents details here -->
-        </ul>      </div>
+       </div>
       <button id="edit-info-btn">Edit Information</button>
       <div id="edit-info-form" style="display: none;">
         <form method="post">
@@ -122,30 +158,27 @@
     editInfoBtn.addEventListener('click', () => {
       editInfoForm.style.display = editInfoForm.style.display === 'none' ? 'block' : 'none';
     });
+    </script>
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-    // Tabs script
-      const tabs = document.querySelectorAll('.tab');
-      const detailsLists = document.querySelectorAll('.details-list');
+    const tabs = document.querySelectorAll('.tab');
+    const detailsLists = document.querySelectorAll('.details-list');
 
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    // Remove 'active' class from all tabs
-    tabs.forEach(t => t.classList.remove('active'));
-    
-    // Add 'active' class to the clicked tab
-    tab.classList.add('active');
-    
-    // Get the target details list ID
-    const targetId = tab.getAttribute('data-target');
-    
-    // Hide all details lists
-    detailsLists.forEach(list => list.classList.remove('active'));
-    
-    // Show the target details list
-    document.getElementById(targetId).classList.add('active');
-  });
-});
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove 'active' class from all tabs and details lists
+            tabs.forEach(t => t.classList.remove('active'));
+            detailsLists.forEach(list => list.classList.remove('active'));
+
+            // Add 'active' class to the clicked tab
+            this.classList.add('active');
+
+            // Show the corresponding details list
+            const selectedTab = this.getAttribute('data-tab');
+            document.getElementById(selectedTab).classList.add('active');
+        });
+    });
     });
   </script>
   {% include 'footer.html' %}
