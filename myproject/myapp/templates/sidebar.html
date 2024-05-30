@@ -25,8 +25,9 @@
       </div>
 
       <div class="settings-icon icon" data-tooltip="Settings">
-        <i class="fas fa-cog"></i>
+        <a href="{% url 'settings' %}"><i class="fas fa-cog"></i>
         <span class="tooltip">Settings</span>
+      </a>
     </div>
       <div class="icon" data-tooltip="Account">
         <i class="fas fa-user"></i>
@@ -59,10 +60,11 @@
       <p>{{ employee.email_address }}</p>
       <nav>
         <ul>
-          <li><a href="{% url 'profile_view' %}">Home</a></li>
-          <li><a href="{% url 'benefits' %}">Benefits</a></li>
-          <li><a href="{% url 'logout' %}">Logout</a></li>
-          <li><a href="{% url 'settings' %}">Settings</a></li>
+          <li><a href="{% url 'profile_view' %}" class="icon-sidebar"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="{% url 'benefits' %}" class="icon-sidebar"><i class="fas fa-money-bill-wave"></i> Benefits</a></li>
+          <li><a href="{% url 'settings' %}" class="icon-sidebar"><i class="fas fa-cog"></i> Settings</a></li>
+          <li><a href="{% url 'logout' %}" class="icon-sidebar"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
 
         </ul>
       </nav>
