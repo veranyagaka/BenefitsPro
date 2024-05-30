@@ -9,8 +9,6 @@ class User(models.Model):
     #class Meta:
         #db_table = 'users'
 
-from django.db import models
-
 class Dependent(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)

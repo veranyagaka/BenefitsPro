@@ -33,3 +33,21 @@ class RegisterForm(forms.ModelForm):
         if commit:
             instance.save()
         return instance
+#for the dependents and beneficiary
+from .models import Dependent, Beneficiary
+
+class DependentForm(forms.ModelForm):
+    class Meta:
+        model = Dependent
+        fields = ['name', 'date_of_birth', 'relationship']
+        widgets = {
+            'date_of_birth': forms.DateInput(attrs={'type': 'date'})
+        }
+
+class BeneficiaryForm(forms.ModelForm):
+    class Meta:
+        model = Beneficiary
+        fields = ['name', 'date_of_birth', 'relationship']
+        widgets = {
+            'date_of_birth': forms.DateInput(attrs={'type': 'date'})
+        }

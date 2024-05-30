@@ -39,51 +39,73 @@
         <tr>
             <td colspan="5"><h3>Accepted Benefits</h3></td>
         </tr>
+        {% if accepted_benefits %}
         {% for benefit in accepted_benefits %}
-        <tr>
-            <td>{{ benefit.program }}</td>
-            <td>{{ benefit.date_applied }}</td>
-            <td>{{ benefit.status }}</td>
-            <td>{{ benefit.documents }}</td>
-            <td>
-                <a href="#" class="btn">Edit</a>
-                <a href="#" class="btn">Delete</a>
-            </td>
-        </tr>
+            <tr>
+                <td>{{ benefit.program }}</td>
+                <td>{{ benefit.date_applied }}</td>
+                <td>{{ benefit.status }}</td>
+                <td>{{ benefit.documents }}</td>
+                <td>
+                    <a href="#" class="btn">Edit</a>
+                    <a href="#" class="btn">Delete</a>
+                </td>
+            </tr>
         {% endfor %}
-
+        {% else %}
         <tr>
-            <td colspan="5"><h3>Pending Benefits</h3></td>
+            <td colspan="5">No accepted benefits available.</td>
         </tr>
+    {% endif %}
+
+    <tr>
+        <td colspan="5"><h3>Pending Benefits</h3></td>
+    </tr>
+    {% if pending_benefits %}
         {% for benefit in pending_benefits %}
-        <tr>
-            <td>{{ benefit.program }}</td>
-            <td>{{ benefit.date_applied }}</td>
-            <td>{{ benefit.status }}</td>
-            <td>{{ benefit.documents }}</td>
-            <td>
-                <a href="#" class="btn">Edit</a>
-                <a href="#" class="btn">Delete</a>
-            </td>
-        </tr>
-        {% endfor %}
+        {% for application in applications %}
 
-        <tr>
-            <td colspan="5"><h3>Rejected Benefits</h3></td>
-        </tr>
-        {% for benefit in rejected_benefits %}
-        <tr>
-            <td>{{ benefit.program }}</td>
-            <td>{{ benefit.date_applied }}</td>
-            <td>{{ benefit.status }}</td>
-            <td>{{ benefit.documents }}</td>
-            <td>
-                <a href="#" class="btn">Edit</a>
-                <a href="#" class="btn">Delete</a>
-            </td>
-        </tr>
+            <tr>
+                <td>{% for benefit in application.benefits.all %}
+                    {{ benefit.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}</td> {% endfor %}
+                <td>{{ benefit.date_applied }}</td>
+                <td>{{ benefit.status }}</td>
+                <td>{{ benefit.documents }}</td>
+                <td>
+                    <a href="#" class="btn">Edit</a>
+                    <a href="#" class="btn">Delete</td>
+                </td>
+            </tr>
         {% endfor %}
-    </tbody>
+    {% else %}
+        <tr>
+            <td colspan="5">No pending benefits available.</td>
+        </tr>
+    {% endif %}
+
+    <tr>
+        <td colspan="5"><h3>Rejected Benefits</h3></td>
+    </tr>
+    {% if rejected_benefits %}
+        {% for benefit in rejected_benefits %}
+            <tr>
+                <td>{{ benefit.program }}</td>
+                <td>{{ benefit.date_applied }}</td>
+                <td>{{ benefit.status }}</td>
+                <td>{{ benefit.documents }}</td>
+                <td>
+                    <a href="#" class="btn">Edit</a>
+                    <a href="#" class="btn">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td colspan="5">No rejected benefits available.</td>
+        </tr>
+    {% endif %}
+</tbody>
 </table>
 
     </main>

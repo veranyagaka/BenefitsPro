@@ -106,4 +106,31 @@ def settings_view(request):
                 'employee': employee,
             }
     return render(request, 'user_settings.html', context)
+## for benefitiarty and dependents meow
+from .forms import DependentForm, BeneficiaryForm
+
+def add_dependent(request):
+    if request.method == 'POST':
+        form = DependentForm(request.POST)
+        if form.is_valid():
+            dependent = form.save(commit=False)
+            dependent.employee = request.user.employee  # Assuming employee is logged in
+            dependent.save()
+            return redirect('some-redirect-url')
+    else:
+        form = DependentForm()
+    return render(request, 'add_dependent.html', {'form': form})
+
+def add_beneficiary(request):
+    if request.method == 'POST':
+        form = BeneficiaryForm(request.POST)
+        if form.is_valid():
+            beneficiary = form.save(commit=False)
+            beneficiary.employee = request.user.employee  # Assuming employee is logged in
+            beneficiary.save()
+            return redirect('some-redirect-url')
+    else:
+        form = BeneficiaryForm()
+    return render(request, 'add_beneficiary.html', {'form': form})
+
 
