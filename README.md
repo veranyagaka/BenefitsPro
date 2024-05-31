@@ -1,4 +1,4 @@
-Bullet points
+<!--Bullet points
 - [x] Login Required
 - [x] Forms for changing password,update/edit benefitiaries etc..
 - [ ] Migrations, Database, Models (sorta know how they work noe
@@ -93,9 +93,4 @@ from .models import YourModelName
 
 admin.site.register(YourModelName)
 -->
-Analysis of files i actually need: 1. for users
-- settings
-- benefits applications page - view applications and stuff
-- reset password
-- 2. for admin
-- approve, deny application
+
