@@ -7,7 +7,7 @@ class CustomAuthenticationMiddleware:
 
     def __call__(self, request):
         path = request.path
-        if not request.session.get('employee_id') and path not in ['','/login/', '/register/']:
+        if not request.session.get('employee_id') and path not in ['/', '/login/', '/register/']:
             return redirect('login_view')
         response = self.get_response(request)
         return response
