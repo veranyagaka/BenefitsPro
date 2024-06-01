@@ -5,7 +5,6 @@ charset-normalizer
 Django
 gunicorn
 idna
-mysqlclient
 packaging
 pillow
 psycopg2-binary
