@@ -77,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-CSRF_COOKIE_DOMAIN = 'yourdomain.com' #set it?
+CSRF_COOKIE_DOMAIN = 'https://benefitspro-production.up.railway.app'
 CSRF_COOKIE_SECURE = True 
 
 # Database
