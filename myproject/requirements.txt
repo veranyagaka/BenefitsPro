@@ -12,3 +12,4 @@ requests
 sqlparse
 typing-extensions
 urllib3
+whitenoise

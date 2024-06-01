@@ -1,0 +1,62 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.welcome-message {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.welcome-message h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.welcome-message button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.benefits-highlight {
+    text-align: left;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.benefits-highlight h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.benefits-highlight ul {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits-highlight li {
+    margin-bottom: 10px;
+}

@@ -51,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'myapp.middleware.CustomAuthenticationMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 
 ]
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
@@ -75,6 +77,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
+CSRF_COOKIE_DOMAIN = 'yourdomain.com' #set it?
+CSRF_COOKIE_SECURE = True 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -130,7 +134,8 @@ import os
 STATIC_URL = 'static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS=[BASE_DIR /'static']
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+#print(BASE_DIR)
 LOGIN_URL = 'login_view'
 LOGIN_REDIRECT_URL = 'profile_view'
 

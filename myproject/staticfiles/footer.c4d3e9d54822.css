@@ -1,0 +1,23 @@
+  footer {
+    background-color: #f2f2f2;  /* Light gray background */
+    padding: 1rem 2rem;  /* Add some padding for content */
+    text-align: center;  /* Center the content horizontally */
+    box-sizing: border-box; 
+  }
+  
+  footer p {
+    color: #333;  /* Text color */
+    margin: 0;  /* Remove default margin */
+    font-size: 0.8rem;  /* Adjust font size as needed */
+  }
+  
+  footer a {  /* Style for any links in the footer */
+    color: #666;  /* Link color */
+    text-decoration: none;  /* Remove underline from links */
+    font-weight: bold;  /* Make links bolder (optional) */
+  }
+  
+  footer a:hover {  /* Style for links on hover */
+    color: #999;  /* Change link color on hover */
+  }
+  

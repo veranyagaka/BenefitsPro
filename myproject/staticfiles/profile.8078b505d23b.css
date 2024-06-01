@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.employee-details {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  border-bottom: 2px solid #ddd;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  margin-right: 5px;
+  background-color: #f5f5f5;
+}
+
+.tab.active {
+  background-color: white;
+  border-color: #2d4b6f;
+}
+
+.details-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.details-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #2d4b6f;
+  color: white;
+}
+
+table td .btn {
+  background-color: #2d4b6f;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+#edit-info-btn {
+  background-color: #2d4b6f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#edit-info-form form {
+  margin-top: 20px;
+}
+
+
+.profile-instructions {
+  background-color: #e0ffff;;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.profile-instructions li b {
+  color: red; /* Highlight important sections in bold red */
+}
+.status-pending {
+  color: #d4af37;
+}
+
+.status-approved {
+  color: green;
+}
+
+.status-denied {
+  color: red;
+}
+

@@ -1,0 +1,53 @@
+body {
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .container {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;  /* Center the container horizontally */
+  }
+  
+  form {
+    display: flex; /* Arrange labels and fields horizontally */
+    flex-direction: column; /* Stack fields vertically */
+    gap: 10px;  /* Add spacing between form elements */
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  input[type="number"],
+  input[type="email"],
+  input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;  /* Fill the available space */
+}
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 15px;  /* Add spacing after form fields */
+    align-self: flex-end;  /* Align button to the right */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+  }
+  
