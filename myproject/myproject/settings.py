@@ -77,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-CSRF_COOKIE_DOMAIN = `''`
+CSRF_COOKIE_DOMAIN = ''
 CSRF_COOKIE_SECURE = True 
 
 # Database
