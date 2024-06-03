@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vk326@y2zyd!s$h(+elb0)0z_f6)zc8gip)#)heenx@nl3ham2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -77,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-CSRF_COOKIE_DOMAIN = 'https://benefitspro-production.up.railway.app'
+CSRF_COOKIE_DOMAIN = ''
 CSRF_COOKIE_SECURE = True 
 
 # Database
