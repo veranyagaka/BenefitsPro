@@ -78,6 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
+CSRF_TRUSTED_ORIGINS = ['https://benefitspro-production.up.railway.app']
 CSRF_COOKIE_DOMAIN = ''
 CSRF_COOKIE_SECURE = True 
 
