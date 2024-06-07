@@ -41,6 +41,13 @@
         <button type="submit">Change Password</button>
     </form>
 
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
     <h2>Settings</h2>
     <form id="user-settings-form">
         <label for="language">Language:</label>
