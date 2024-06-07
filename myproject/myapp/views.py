@@ -79,8 +79,9 @@ def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            # Process the data in form.cleaned_data
-            return render(request, 'success.html')
+            employee = form.save()  # Save the employee and get the instance
+            request.session['employee_id'] = employee.employee_id            
+            return redirect('profile')
     else:
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})
